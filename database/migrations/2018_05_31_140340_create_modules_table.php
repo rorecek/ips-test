@@ -24,10 +24,10 @@ class CreateModulesTable extends Migration
         Schema::create('user_completed_modules', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->integer('module_id')->unsigned();
+            $table->unsignedInteger('module_id');
             $table->foreign('module_id')->references('id')->on('modules')->onDelete('cascade');
 
             $table->timestamps();
