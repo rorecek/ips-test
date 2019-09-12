@@ -32,6 +32,6 @@ class User extends Authenticatable
 
     public function completedModules()
     {
-        return $this->belongsToMany(Module::class, 'user_completed_modules');
+        return $this->belongsToMany(Module::class, 'user_completed_modules')->withTimestamps();
     }
 }
