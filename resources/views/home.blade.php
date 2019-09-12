@@ -22,7 +22,7 @@
 
                     <p>
                         <ul>
-                            @foreach(auth()->user()->completed_modules as $module)
+                            @foreach(auth()->user()->completedModules as $module)
                                 <li>{{ $module->module_key }}</li>
                             @endforeach
                         </ul>
