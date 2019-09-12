@@ -34,4 +34,17 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Module::class, 'user_completed_modules')->withTimestamps();
     }
+
+    public function findByEmail(string $email): User
+    {
+        return $this->where('email', $email)->firstOrFail();
+    }
+
+    public function lastCompletedCourseModule($courseKey)
+    {
+        return $this->completedModules()
+            ->where('course_key', $courseKey)
+            ->orderBy('module_number', 'desc')
+            ->first();
+    }
 }
