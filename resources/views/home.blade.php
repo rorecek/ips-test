@@ -22,8 +22,8 @@
 
                     <p>
                         <ul>
-                            @foreach(auth()->user()->completedModules as $module)
-                                <li>{{ $module->module_key }}</li>
+                            @foreach($completedModules as $module)
+                                <li>{{ $module->name }}</li>
                             @endforeach
                         </ul>
                     </p>
