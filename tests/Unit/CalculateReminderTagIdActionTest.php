@@ -20,6 +20,11 @@ class CalculateReminderTagIdActionTest extends TestCase
         $this->seed('iPSDevTestSeeder');
     }
 
+    protected function reminderTagIdByName($name)
+    {
+        return ReminderTag::whereName($name)->first()->id;
+    }
+
     /** @test */
     public function email_address_is_not_present_in_database()
     {
@@ -38,7 +43,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Module reminders completed')->first()->id,
+            $this->reminderTagIdByName('Module reminders completed'),
             $calculateTagId->execute($user->email, '')
         );
     }
@@ -51,7 +56,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Start IPA Module 1 Reminders')->first()->id,
+            $this->reminderTagIdByName('Start IPA Module 1 Reminders'),
             $calculateTagId->execute($user->email, 'ipa')
         );
     }
@@ -65,7 +70,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Start IPA Module 2 Reminders')->first()->id,
+            $this->reminderTagIdByName('Start IPA Module 2 Reminders'),
             $calculateTagId->execute($user->email, 'ipa')
         );
     }
@@ -80,7 +85,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Start IPA Module 6 Reminders')->first()->id,
+            $this->reminderTagIdByName('Start IPA Module 6 Reminders'),
             $calculateTagId->execute($user->email, 'ipa')
         );
     }
@@ -94,7 +99,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Module reminders completed')->first()->id,
+            $this->reminderTagIdByName('Module reminders completed'),
             $calculateTagId->execute($user->email, 'ipa')
         );
     }
@@ -109,7 +114,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Start IEA Module 2 Reminders')->first()->id,
+            $this->reminderTagIdByName('Start IEA Module 2 Reminders'),
             $calculateTagId->execute($user->email, 'iea,ipa')
         );
     }
@@ -123,7 +128,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Start IPA Module 1 Reminders')->first()->id,
+            $this->reminderTagIdByName('Start IPA Module 1 Reminders'),
             $calculateTagId->execute($user->email, 'iea,ipa')
         );
     }
@@ -138,7 +143,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Start IPA Module 2 Reminders')->first()->id,
+            $this->reminderTagIdByName('Start IPA Module 2 Reminders'),
             $calculateTagId->execute($user->email, 'iea,ipa')
         );
     }
@@ -153,7 +158,7 @@ class CalculateReminderTagIdActionTest extends TestCase
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
         $this->assertEquals(
-            ReminderTag::whereName('Module reminders completed')->first()->id,
+            $this->reminderTagIdByName('Module reminders completed'),
             $calculateTagId->execute($user->email, 'iea,ipa')
         );
     }
