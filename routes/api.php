@@ -13,3 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::middleware('json')->group(function () {
+    Route::post('module_reminder_assigner', \App\Http\Controllers\ApiController::class);
+});
