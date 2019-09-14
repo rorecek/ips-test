@@ -7,11 +7,8 @@ use Log;
 use Storage;
 use Request;
 
-
-class InfusionsoftHelper
+class InfusionsoftHelper implements CRMHelperInterface
 {
-    private $infusionsoft;
-
     public function __construct()
     {
         if (Storage::exists('inf_token')) {
