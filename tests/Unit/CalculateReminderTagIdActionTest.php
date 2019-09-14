@@ -26,7 +26,7 @@ class CalculateReminderTagIdActionTest extends TestCase
     }
 
     /** @test */
-    public function email_address_is_not_present_in_database()
+    public function email_address_is_not_present_in_the_database()
     {
         $calculateTagId = app()->make(CalculateReminderTagIdAction::class);
 
@@ -120,7 +120,7 @@ class CalculateReminderTagIdActionTest extends TestCase
     }
 
     /** @test */
-    public function one_course_of_two_is_completed()
+    public function one_course_out_of_two_is_completed()
     {
         $user = factory(User::class)->create();
         $user->completedModules()->attach(Module::where('course_key', 'iea')->get());
